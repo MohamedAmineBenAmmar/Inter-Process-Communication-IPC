@@ -17,7 +17,7 @@ const AppMenu = () => {
           className="mr-2 mt-3"
         ></img>
         <h4 style={{ float: "right", color: "skyblue" }}>
-          Unix Communication (IPC)
+          IPC
         </h4>
       </Link>
     </>

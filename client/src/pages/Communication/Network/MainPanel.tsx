@@ -100,12 +100,19 @@ const MainPanel = () => {
 
   return (
     <>
-      <div className="actions mb-4">
+      <div className="actions mb-4 mt-4">
         <Button
           label="Add Client"
           icon="pi pi-check"
           iconPos="right"
           onClick={addClient}
+          className="mr-2"
+        />
+         <Button
+          label="Run All Clients"
+          icon="pi pi-sync"
+          iconPos="right"
+          // onClick={addClient}
         />
       </div>
       <ReactFlow

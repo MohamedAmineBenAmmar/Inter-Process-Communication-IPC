@@ -15,7 +15,7 @@ export default function Network() {
     
   }, []);
   return (
-    <div className="w-full h-screen">
+    <div className="w-full" style={{height: "650px"}}>
       <MainPanel />
     </div>
   );
