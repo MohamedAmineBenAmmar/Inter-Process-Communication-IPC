@@ -8,6 +8,16 @@ import Setup from '../Setup';
 
 export default function Stepper() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [config, setConfig] = useState({})
+    const handleConfig = (key, value) => {
+        setConfig({
+            ...config,
+            [key]: value
+        })
+    }
+    const incrementStep = () => {
+        setActiveIndex(activeIndex +1)
+    }
     const toast = useRef(null);
     const items = [
         {
@@ -35,8 +45,8 @@ export default function Stepper() {
             <Toast ref={toast}></Toast>
             <div className="card">                
                 <Steps model={items} activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e.index)} readOnly={false} />
-                {activeIndex === 0 && (<Setup />)}
-                {activeIndex === 1 && (<Network />)}
+                {activeIndex === 0 && (<Setup handleConfig={handleConfig} incrementStep={incrementStep} />)}
+                {activeIndex === 1 && (<Network config={config} handleConfig={handleConfig} incrementStep={incrementStep} />)}
             </div>
         </div>
     );

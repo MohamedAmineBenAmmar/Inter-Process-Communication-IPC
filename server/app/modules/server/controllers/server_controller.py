@@ -1,12 +1,18 @@
 import os
 from fastapi import status, HTTPException, Response
-from ..schemas.server_schemas import UpServerOutSchema, UpServerInSchema
+from ..schemas.server_schemas import UpServerOutSchema, UpServerInSchema, ShutdownServerOutSchema
 
 
 class ServerContoller():
     def up_server(self, req_body: UpServerInSchema) -> UpServerOutSchema:
+        # Run the server
+        # to be continued...
+        response = UpServerOutSchema(status="Up", server_pid=int("4440"))
+        return response
+
+        # Check if the server is up and running and returns its PID
         values: list
-        with os.popen("ps -a | grep test") as f:
+        with os.popen(f"ps -a | grep {req_body.type}_server") as f:
             server_process = f.readlines()
             if len(server_process) == 0:
                 raise HTTPException(
@@ -19,7 +25,7 @@ class ServerContoller():
 
                 values = server_process.split(" ")                
                 
-                response = UpServerOutSchema(status="up", server_pid=values[0])
+                response = UpServerOutSchema(status="Up", server_pid=int(values[0]))
                 return response
 
     def shutdown_server(self, server_pid) -> dict:
@@ -28,9 +34,8 @@ class ServerContoller():
             raise HTTPException(
                     status_code=status.HTTP_404_NOT_FOUND, detail=f"No process with PID = {server_pid}")
         else:
-            return {
-                "status": "down"
-            }
+            response = ShutdownServerOutSchema(status="Down")
+            return response
         
 
     def get_server_communications(self) -> dict:

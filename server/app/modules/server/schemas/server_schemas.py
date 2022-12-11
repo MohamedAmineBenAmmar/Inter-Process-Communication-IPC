@@ -6,7 +6,7 @@ class ShutdownServerInSchema(BaseModel):
     server_pid: int
 
 class ShutdownServerOutSchema(BaseModel):
-    status: str = "down"
+    status: str = "Down"
 
 
 class UpServerInSchema(BaseModel):
@@ -14,5 +14,5 @@ class UpServerInSchema(BaseModel):
     port: int
 
 class UpServerOutSchema(BaseModel):
-    status: str = "up"
-    server_pid: str
+    status: str = "Up"
+    server_pid: int

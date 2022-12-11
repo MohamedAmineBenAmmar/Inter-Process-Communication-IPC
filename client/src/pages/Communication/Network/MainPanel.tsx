@@ -10,6 +10,7 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { Button } from "primereact/button";
+import { Badge } from "primereact/badge";
 
 import ClientNode from "./ClientNode";
 import ServerNode from "./ServerNode";
@@ -25,7 +26,7 @@ const nodeTypes = {
   serverNode: ServerNode,
 };
 
-const MainPanel = () => {
+const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upServer }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [bgColor, setBgColor] = useState(initBgColor);
@@ -101,19 +102,59 @@ const MainPanel = () => {
   return (
     <>
       <div className="actions mb-4 mt-4">
-        <Button
-          label="Add Client"
-          icon="pi pi-check"
-          iconPos="right"
-          onClick={addClient}
-          className="mr-2"
-        />
-         <Button
-          label="Run All Clients"
-          icon="pi pi-sync"
-          iconPos="right"
-          // onClick={addClient}
-        />
+        <div className="grid">
+          <div className="col-6">
+            <h2>Actions</h2>
+            <Button
+              label="Add Client"
+              icon="pi pi-plus-circle"
+              iconPos="right"
+              onClick={addClient}
+              className="mr-2 p-button-secondary"
+            />
+            <Button
+              label="Run All Clients"
+              icon="pi pi-sync"
+              iconPos="right"
+              // onClick={addClient}
+              className="mr-2"
+            />
+            <Button
+              label="Up Server"
+              icon="pi pi-caret-right"
+              iconPos="right"
+              onClick={upServer}
+              className="mr-2 p-button-success"
+            />
+            <Button
+              label="Shutdown Server"
+              icon="pi pi-power-off"
+              iconPos="right"
+              // onClick={addClient}
+              className="mr-2 p-button-danger"
+            />
+          </div>
+          <div className="col">
+            <h2>Server Status</h2>
+            <Button
+              type="button"
+              label={serverStatus}
+              className="p-button-warning"
+            >
+              <Badge
+                value={serverStatus === "Down" ? 0 : config.setup.port}
+              ></Badge>
+            </Button>
+          </div>
+          <div className="col">
+            <h2>Current Operation</h2>
+            <Button
+              type="button"
+              label={lastOperation}
+              className="p-button-warning"
+            />
+          </div>
+        </div>
       </div>
       <ReactFlow
         nodes={nodes}
@@ -145,4 +186,4 @@ const MainPanel = () => {
   );
 };
 
-export default () => <MainPanel />;
+export default MainPanel;
