@@ -5,8 +5,8 @@ if [ ! -f "$node_modules" ]; then
     echo "$node_modules does not exist"
     echo "Going to install it for you, please wait"
     npm install
-    echo "Building the GUI"
-    npm run electron:build
+    # echo "Building the GUI"
+    # npm run electron:build
 fi
 cd ..
 

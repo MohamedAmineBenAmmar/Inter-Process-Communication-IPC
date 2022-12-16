@@ -16,7 +16,8 @@ int main()
     }
     else
     {
-        system("./client/dist/linux-unpacked/my-app");   
+        // system("./client/dist/linux-unpacked/my-app"); 
+        system("cd client && npm run electron:dev");  
     }
     return 0;
 }
