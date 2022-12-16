@@ -18,11 +18,12 @@ pip install -r requirements.txt
 # Manage the core
 echo "Building the main executables"
 cd core
+mkdir build
 make
 cd ../..
 
 # Manage loaser
 echo "Building the loader"
-gcc loader.c -o IPC
+gcc loader/init.c -o IPC
 
 echo "Installation is done successfully."

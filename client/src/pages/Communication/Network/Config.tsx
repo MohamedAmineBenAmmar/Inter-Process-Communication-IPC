@@ -26,16 +26,10 @@ const DialogDemo = ({ config, nodeName, type }) => {
     return (
       <div>
         <Button
-          label="No"
+          label="Close"
           icon="pi pi-times"
           onClick={() => onHide()}
           className="p-button-text"
-        />
-        <Button
-          label="Yes"
-          icon="pi pi-check"
-          onClick={() => onHide()}
-          autoFocus
         />
       </div>
     );
