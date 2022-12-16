@@ -22,4 +22,4 @@ cd ..
 # Creating the main executable
 ls
 echo "going to build the loader"
-# gcc loader.c -o IPSC
+# gcc loader.c -o IPC

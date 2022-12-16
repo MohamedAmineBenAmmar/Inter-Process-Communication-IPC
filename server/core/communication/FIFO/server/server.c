@@ -10,6 +10,7 @@ void close_communication_file()
     fptr = fopen(COMMUNICATION, "a");
     fputs("\n}", fptr);
     fclose(fptr);
+    fin_serveur();
     kill(getpid(), SIGKILL);
 }
 
@@ -33,6 +34,7 @@ int main()
             exit(1);
         }
     }
+    printf("[+]FIFO1 is created successfully in mode read only from server\n");
 
     if (mkfifo(FIFO2, 0777) == -1)
     {
@@ -42,6 +44,7 @@ int main()
             exit(1);
         }
     }
+    printf("[+]FIFO2 is created successfully in mode write only from server\n");
 
     /* Init random number generator */
     srand(getpid());
@@ -83,16 +86,14 @@ int main()
             printf("[-]Could not open the FIFO1 in mode read only from server\n");
             exit(1);
         }
-        printf("[+]FIFO1 is created successfully in mode read only from server\n");
-
+        
         int fifo2 = open(FIFO2, O_WRONLY);
         if (fifo2 == -1)
         {
             printf("[-]Could not open the FIFO2 in mode write only from server\n");
             exit(1);
         }
-        printf("[+]FIFO2 is created successfully in mode write only from server\n");
-
+        
         /* Writing the basic clients data to the communication.json file */
         fptr = fopen(COMMUNICATION, "a");
         nbr++;

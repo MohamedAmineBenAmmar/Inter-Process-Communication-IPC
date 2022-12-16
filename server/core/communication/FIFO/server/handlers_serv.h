@@ -2,6 +2,6 @@
 #define SERV_HANDLERS_HEADER_FILE
 
 void hand_reveil(int sig);
-void fin_serveur(int sig);
+void fin_serveur();
 
 #endif

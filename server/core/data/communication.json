@@ -1,4 +1,4 @@
 {
-"server":{"PID":53574, "port":4444, "address": "127.0.0.1"},
-"client_1": {"address":"127.0.0.1", "port": "49921"}
+"server":{"PID":60193, "port":"NO_PORT", "address": "127.0.0.1"},
+"client_1": {"address":"127.0.0.1", "port": "NO_PORT"}
 }

@@ -19,7 +19,10 @@ class ServerContoller():
         self.clean_up("../core/logs")
 
         # Run the server
-        subprocess.Popen(f"cd ../core && ./build/{req_body.type}_Server {req_body.port} > logs/{req_body.type}_Server_Logs &", shell=True)
+        if req_body.type == 'FIFO':
+            subprocess.Popen(f"cd ../core && ./build/{req_body.type}_Server > logs/{req_body.type}_Server_Logs &", shell=True)
+        else:    
+            subprocess.Popen(f"cd ../core && ./build/{req_body.type}_Server {req_body.port} > logs/{req_body.type}_Server_Logs &", shell=True)
 
         # Check if the server is up and running and returns its PID
         values: list

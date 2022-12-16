@@ -1,7 +1,0 @@
-[+]Server Socket is created.
-[+]Ack server Socket is created.
-[+]Bind main entry to port 4444
-[+]Bind ack to port 3000
-[+]Client IP adress: 127.0.0.1 and port: 49921 with PID 53588 send 11 as payload.
-[+]Data sent to the client 127.0.0.1:49921
-[+]Received ack from 0.0.0.0:0
