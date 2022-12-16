@@ -12,7 +12,7 @@ int main()
     if (child = fork() == 0)
     {
         // In the child process
-        system("cd server && . ./venv/bin/activate && cd app && uvicorn main:app --reload");
+        system("cd server/app && uvicorn main:app --reload");
     }
     else
     {
