@@ -32,8 +32,8 @@ export default function Panel() {
       </div>
       <div className="col-12 md:col-6 overflow-hidden">
         <img
-          src="/assets/images/network.jpg"
-          alt="hero-1"
+          src="assets/images/network.jpg"
+          alt="Logo"
           className="md:ml-auto block md:h-full"
           style={{ clipPath: "polygon(8% 0, 100% 0%, 100% 100%, 0 100%)" }}
         />

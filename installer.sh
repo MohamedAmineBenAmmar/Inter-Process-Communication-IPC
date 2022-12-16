@@ -2,24 +2,32 @@
 cd client
 node_modules=node_modules
 if [ ! -f "$node_modules" ]; then
-    echo "$node_modules does not exist."
-    echo "Going to install it for you, please wait :D"
-    # npm install
+    echo "$node_modules does not exist"
+    echo "Going to install it for you, please wait"
+    npm install
+    echo "Building the GUI"
+    npm run electron:build
 fi
-echo "building front"
-# npm run electron:build
 cd ..
 
 # Create a venv inside the server
-# cd server && python -m venv venv
 cd server
-ls
-echo "going to install python deps"
-
-# pip install -r requirements.txt
-cd ..
+venv=venv
+if [ ! -f "$venv" ]; then
+    echo "$venv does not exist"
+    echo "Going to install a python virtual environment for you, please wait"
+    python -m venv venv
+    echo "Going to install python deps"
+    pip install -r requirements.txt  
+fi
+cd core
+mkdir build
+echo "Building the core executable files"
+make
 
 # Creating the main executable
-ls
-echo "going to build the loader"
-# gcc loader.c -o IPC
+cd ../..
+echo "Building the loader"
+gcc loader.c -o IPC
+
+echo "Installation is done successfully."

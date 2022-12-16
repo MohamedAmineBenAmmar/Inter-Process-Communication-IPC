@@ -1,7 +1,0 @@
-[+]Server Socket is created.
-[+]Bind to port 4444
-[+]Listening....
-[+]Connection accepted from 0.0.0.0:0
-[+]Client with PID 60968 send 21 as payload.
-[+]Data sent to the client 0.0.0.0:0
-[+]The client with 0.0.0.0:0 and a PID of 60968 has received the server response and confirmed that.
