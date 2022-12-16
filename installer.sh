@@ -1,32 +1,27 @@
-# Build the client GUI
+# Manage client
 cd client
-node_modules=node_modules
-if [ ! -f "$node_modules" ]; then
-    echo "$node_modules does not exist"
-    echo "Going to install it for you, please wait"
-    npm install
-    # echo "Building the GUI"
-    # npm run electron:build
-fi
+echo "Installing all the needed react and electron packages"
+npm install
+echo "Building the GUI"
+npm run electron:build
 cd ..
 
-# Create a venv inside the server
+# Manage the FastAPI server
 cd server
-venv=venv
-if [ ! -f "$venv" ]; then
-    echo "$venv does not exist"
-    echo "Going to install a python virtual environment for you, please wait"
-    python -m venv venv
-    echo "Going to install python deps"
-    pip install -r requirements.txt  
-fi
-cd core
-mkdir build
-echo "Building the core executable files"
-make
+echo "Creating python virtual env"
+python3 -m venv venv
+echo "Activating the python virtual env"
+. ./venv/bin/activate
+echo "Installing the needed FastAPI packages"
+pip install -r requirements.txt
 
-# Creating the main executable
+# Manage the core
+echo "Building the main executables"
+cd core
+make
 cd ../..
+
+# Manage loaser
 echo "Building the loader"
 gcc loader.c -o IPC
 
