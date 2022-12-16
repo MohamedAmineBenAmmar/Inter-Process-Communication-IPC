@@ -16,16 +16,14 @@ const AppMenu = () => {
           height="40"
           className="mr-2 mt-3"
         ></img>
-        <h4 style={{ float: "right", color: "skyblue" }}>
-          IPC
-        </h4>
+        <h4 style={{ float: "right", color: "skyblue" }}>IPC</h4>
       </Link>
     </>
   );
   const end = (
     <>
       <a
-        href="https://github.com/MohamedAmineBenAmmar/Numerical-Analysis-Project"
+        href="https://github.com/MohamedAmineBenAmmar/Inter-Process-Communication-IPC"
         target="_blank"
       >
         <i className="pi pi-github mr-5" style={{ fontSize: "1.5em" }}></i>

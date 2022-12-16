@@ -1,32 +1,27 @@
 import React from "react";
-import { Button } from 'primereact/button'
-import { useNavigate } from 'react-router-dom'
+import { Button } from "primereact/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Panel() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleRedirection = () => {
-    navigate('/communication')
-  }
+    navigate("/communication");
+  };
   return (
     <div className="grid grid-nogutter surface-0 text-800">
       <div className="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
         <section>
           <span className="block text-6xl font-bold mb-1">
-            Create the screens your
+            Inter Process Communication
           </span>
           <div className="text-6xl text-primary font-bold mb-3">
-            your visitors deserve to see
+            Unix Project
           </div>
           <p className="mt-0 mb-4 text-700 line-height-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            This project is going to demonstrate the processes communication
+            using sockets with the TCP and UDP protocoles and the communication
+            with named pipesiqua.
           </p>
-
-          <Button
-            label="Learn More"
-            type="button"
-            className="mr-3 p-button-raised"
-          />
           <Button
             label="Live Demo"
             type="button"

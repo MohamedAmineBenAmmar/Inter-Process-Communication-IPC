@@ -4,13 +4,13 @@ export default function Features() {
   return (
     <div className="surface-0 text-center mt-4 p-8">
       <div className="mb-3 font-bold text-2xl">
-        <span className="text-900">One Product, </span>
-        <span className="text-blue-600">Many Solutions</span>
+        <span className="text-900">Higher Institute, </span>
+        <span className="text-blue-600">of Computer Science</span>
       </div>
       <div className="text-700 text-sm mb-6">
-        Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna.
+        Developed by Mohamed Amine Ben Ammar (Softwate Engineer Student).
       </div>
-      <div className="grid">        
+      <div className="grid">
         <div className="col-12 md:col-3 mb-4 px-5">
           <span
             className="p-3 shadow-2 mb-3 inline-block"
@@ -18,10 +18,10 @@ export default function Features() {
           >
             <i className="pi pi-globe text-4xl text-blue-500"></i>
           </span>
-          <div className="text-900 mb-3 font-medium">Fast & Global Support</div>
+          <div className="text-900 mb-3 font-medium">Communication</div>
           <span className="text-700 text-sm line-height-3">
-            Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum
-            tellus.
+            The application supports a variety of communication mechanisms such
+            as TCP, UDP and Named Pipes.
           </span>
         </div>
         <div className="col-12 md:col-3 mb-4 px-5">
@@ -33,8 +33,8 @@ export default function Features() {
           </span>
           <div className="text-900 mb-3 font-medium">Open Source</div>
           <span className="text-700 text-sm line-height-3">
-            Nec tincidunt praesent semper feugiat. Sed adipiscing diam donec
-            adipiscing tristique risus nec feugiat.{" "}
+            All the source code is available so you can dig into it and make
+            improvements to it.{" "}
           </span>
         </div>
         <div className="col-12 md:col-3 mb-4 px-5">
@@ -42,12 +42,12 @@ export default function Features() {
             className="p-3 shadow-2 mb-3 inline-block"
             style={{ borderRadius: "10px" }}
           >
-            <i className="pi pi-github text-4xl text-blue-500"></i>
+            <i className="pi pi-wrench text-4xl text-blue-500"></i>
           </span>
-          <div className="text-900 mb-3 font-medium">Open Source</div>
+          <div className="text-900 mb-3 font-medium">Performance</div>
           <span className="text-700 text-sm line-height-3">
-            Nec tincidunt praesent semper feugiat. Sed adipiscing diam donec
-            adipiscing tristique risus nec feugiat.{" "}
+            the application uses the latest technologies to ensure high speed
+            and reliability.{" "}
           </span>
         </div>
         <div className="col-12 md:col-3 md:mb-4 mb-0 px-3">
@@ -55,12 +55,13 @@ export default function Features() {
             className="p-3 shadow-2 mb-3 inline-block"
             style={{ borderRadius: "10px" }}
           >
-            <i className="pi pi-shield text-4xl text-blue-500"></i>
+            <i className="pi pi-book text-4xl text-blue-500"></i>
           </span>
-          <div className="text-900 mb-3 font-medium">Trusted Securitty</div>
+          <div className="text-900 mb-3 font-medium">Learn</div>
           <span className="text-700 text-sm line-height-3">
-            Mattis rhoncus urna neque viverra justo nec ultrices. Id cursus
-            metus aliquam eleifend.
+            this application is great for learning to develop in a unix
+            environment. You will discover a lot of new techniques and
+            mechanisms that will help to hone your skills.
           </span>
         </div>
       </div>

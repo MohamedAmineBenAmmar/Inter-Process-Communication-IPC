@@ -150,7 +150,7 @@ const MainPanel = ({
               className="p-button-warning"
             >
               <Badge
-                value={serverStatus === "Down" ? 0 : config.setup.port}
+                value={(serverStatus === "Down" || config.setup.type === 'FIFO') ? 0 : config.setup.port}
               ></Badge>
             </Button>
           </div>

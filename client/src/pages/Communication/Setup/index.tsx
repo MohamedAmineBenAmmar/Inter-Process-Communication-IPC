@@ -51,7 +51,7 @@ export default function Setup({ handleConfig, incrementStep}) {
               </span>
             </div>
             <div className="field">
-              <span className="p-float-label">
+              <span className="p-float-label p-input-icon-right">
                 <Dropdown
                   id="type"
                   name="type"
@@ -60,7 +60,7 @@ export default function Setup({ handleConfig, incrementStep}) {
                   options={communicationTypes}
                   optionLabel="name"
                 />
-                <label htmlFor="country">Communication Type</label>
+                <label htmlFor="type">Communication Type</label>
               </span>
             </div>
             <Button type="submit" label="Confirm" className="mt-2" />
