@@ -1,0 +1,7 @@
+[+]Server Socket is created.
+[+]Bind to port 6000
+[+]Listening....
+[+]Connection accepted from 254.127.0.0:51999
+[+]Client with PID 25166 send 12 as payload.
+[+]Data sent to the client 254.127.0.0:51999
+[+]The client with 254.127.0.0:51999 and a PID of 25166 has received the server response and confirmed that.

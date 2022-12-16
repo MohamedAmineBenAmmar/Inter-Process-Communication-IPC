@@ -7,9 +7,9 @@ import { Dropdown } from "primereact/dropdown";
 
 import "./FormDemo.css";
 
-export default function Setup({ handleConfig, incrementStep}) {
+export default function Setup({ handleConfig, incrementStep }) {
   const [formData, setFormData] = useState({});
-  const handleChange = (e) => {    
+  const handleChange = (e) => {
     if (e.target.id === "type") {
       setFormData({ ...formData, type: e.target.value.name });
     } else {
@@ -21,9 +21,13 @@ export default function Setup({ handleConfig, incrementStep}) {
     e.preventDefault();
     console.log("form data");
     console.log(formData);
-    
-    handleConfig("setup", formData)
-    incrementStep()
+
+    if (Object.keys(formData).length === 0) {
+      alert("You must fill the form first");
+    } else {
+      handleConfig("setup", formData);
+      incrementStep();
+    }
   };
   let communicationTypes = [{ name: "TCP" }, { name: "UDP" }, { name: "FIFO" }];
   return (

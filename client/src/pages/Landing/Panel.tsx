@@ -20,7 +20,7 @@ export default function Panel() {
           <p className="mt-0 mb-4 text-700 line-height-3">
             This project is going to demonstrate the processes communication
             using sockets with the TCP and UDP protocoles and the communication
-            with named pipesiqua.
+            with named pipes.
           </p>
           <Button
             label="Live Demo"

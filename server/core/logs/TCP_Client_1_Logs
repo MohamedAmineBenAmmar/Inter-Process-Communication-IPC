@@ -1,0 +1,6 @@
+[+]Client Socket is created.
+[+]Connected to Server.
+[+]Client random generated number: 12 
+[+]Server responded with:	29 17 33 38 3 26 20 8 44 16 27 23 
+[+]Sending ack to the server
+[-]Disconnected from server.

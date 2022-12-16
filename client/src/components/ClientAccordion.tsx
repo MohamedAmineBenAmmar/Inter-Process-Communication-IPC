@@ -46,7 +46,7 @@ export const ClientAccordion = ({ data, nodeName }) => {
                 <div className="p-inputgroup">
                   <p className="w-10">
                     {data[nodeName].output.map((x, index) => {
-                      if (index % 32 === 0) {
+                      if (index % 20 === 0) {
                         return (
                           <>
                             <br />

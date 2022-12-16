@@ -1,2 +1,4 @@
 {
-"server":{"PID":5296, "port":4444, "address": "127.0.0.1"}
+"server":{"PID":25152, "port":6000, "address": "127.0.0.1"},
+"client_1": {"address":"254.127.0.0", "port": "51999"}
+}
