@@ -1,0 +1,5 @@
+[+]Client Socket is created.
+Client random generated number: 11 
+[+]Data sent: 11
+Server responded with:	6 13 6 40 9 17 25 48 21 22 31 
+[-]Disconnected from server.

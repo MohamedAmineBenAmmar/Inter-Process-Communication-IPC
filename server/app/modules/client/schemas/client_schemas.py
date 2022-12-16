@@ -3,7 +3,7 @@ from typing import Literal, List
 
 
 class RunAllClientsInSchema(BaseModel):
-    clients_ids: List[str]
+    clients: int
     type: Literal['TCP', 'UDP', 'FIFO']
     port: int
 

@@ -26,7 +26,15 @@ const nodeTypes = {
   serverNode: ServerNode,
 };
 
-const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upServer }) => {
+const MainPanel = ({
+  runAllClients,
+  shutDownServer,
+  serverStatus,
+  config,
+  lastOperation,
+  setLastOperation,
+  upServer,
+}) => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [bgColor, setBgColor] = useState(initBgColor);
@@ -35,7 +43,7 @@ const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upSe
     const newNode = {
       id: `client_${nodes.length}`,
       type: "clientNode",
-      data: { color: initBgColor, name: `client_${nodes.length}` },
+      data: { color: initBgColor, name: `client_${nodes.length}`, config },
       style: { border: "1px solid #777" },
       position: { x: 300, y: 50 },
     };
@@ -49,40 +57,18 @@ const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upSe
   console.log(edges);
 
   useEffect(() => {
-    // const onChange = (event) => {
-    //   setNodes((nds) =>
-    //     nds.map((node) => {
-    //       if (node.id !== "2") {
-    //         return node;
-    //       }
-
-    //       const color = event.target.value;
-
-    //       setBgColor(color);
-
-    //       return {
-    //         ...node,
-    //         data: {
-    //           ...node.data,
-    //           color,
-    //         },
-    //       };
-    //     })
-    //   );
-    // };
-
     setNodes([
       {
         id: "server",
         type: "serverNode",
-        data: { color: initBgColor, name: "server" },
+        data: { color: initBgColor, name: "server", config },
         style: { border: "1px solid #777" },
         position: { x: 100, y: 50 },
       },
       {
         id: "client_1",
         type: "clientNode",
-        data: { color: initBgColor, name: "client_1" },
+        data: { color: initBgColor, name: "client_1", config },
         style: { border: "1px solid #777" },
         position: { x: 300, y: 50 },
       },
@@ -90,6 +76,20 @@ const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upSe
 
     setEdges([]);
   }, []);
+
+  useEffect(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            config,
+          },
+        };
+      })
+    );
+  }, [config]);
 
   const onConnect = useCallback(
     (params) =>
@@ -104,35 +104,43 @@ const MainPanel = ({ serverStatus, config, lastOperation, setLastOperation, upSe
       <div className="actions mb-4 mt-4">
         <div className="grid">
           <div className="col-6">
-            <h2>Actions</h2>
-            <Button
-              label="Add Client"
-              icon="pi pi-plus-circle"
-              iconPos="right"
-              onClick={addClient}
-              className="mr-2 p-button-secondary"
-            />
-            <Button
-              label="Run All Clients"
-              icon="pi pi-sync"
-              iconPos="right"
-              // onClick={addClient}
-              className="mr-2"
-            />
-            <Button
-              label="Up Server"
-              icon="pi pi-caret-right"
-              iconPos="right"
-              onClick={upServer}
-              className="mr-2 p-button-success"
-            />
-            <Button
-              label="Shutdown Server"
-              icon="pi pi-power-off"
-              iconPos="right"
-              // onClick={addClient}
-              className="mr-2 p-button-danger"
-            />
+          <h2>Actions</h2>
+            <div className="grid">
+              <div className="col-6">
+                <Button
+                  label="Add Client"
+                  icon="pi pi-plus-circle"
+                  iconPos="right"
+                  onClick={addClient}
+                  className="mr-2 p-button-secondary mb-2 w-8"
+                />
+                <Button
+                  label="Run All Clients"
+                  icon="pi pi-sync"
+                  iconPos="right"
+                  onClick={() => {
+                    runAllClients(nodes.length - 1);
+                  }}
+                  className="mr-2 w-8"
+                />
+              </div>
+              <div className="col-6">
+                <Button
+                  label="Up Server"
+                  icon="pi pi-caret-right"
+                  iconPos="right"
+                  onClick={upServer}
+                  className="mr-2 p-button-success mb-2 w-8"
+                />
+                <Button
+                  label="Shutdown"
+                  icon="pi pi-power-off"
+                  iconPos="right"
+                  onClick={shutDownServer}
+                  className="mr-2 p-button-danger w-8"
+                />
+              </div>
+            </div>
           </div>
           <div className="col">
             <h2>Server Status</h2>

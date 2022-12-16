@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import "./DialogDemo.css";
+import { ServerAccordion } from "../../../components/ServerAccordion";
+import { ClientAccordion } from "../../../components/ClientAccordion";
 
-const DialogDemo = () => {
+const DialogDemo = ({ config, nodeName, type }) => {
   const [visible, setVisible] = useState(false);
 
   const onClick = () => {
@@ -14,6 +16,11 @@ const DialogDemo = () => {
   const onHide = () => {
     setVisible(false);
   };
+
+  console.log("7alit el modl")
+  console.log(config)
+  console.log(nodeName)
+  console.log(type)
 
   const renderFooter = () => {
     return (
@@ -43,23 +50,14 @@ const DialogDemo = () => {
           onClick={() => onClick()}
         />
          
-
         <Dialog
-          header="Header"
+          header={type === 'client' ? ("Visualize client communications") : ("Visualize server communications")}
           visible={visible}
           style={{ width: "50vw" }}
           footer={renderFooter()}
           onHide={() => onHide()}
         >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+         {type === 'client' ? (<ClientAccordion data={config.communications} nodeName={nodeName} />) : (<ServerAccordion data={config.communications} />)}
         </Dialog>
       </div>
     </div>

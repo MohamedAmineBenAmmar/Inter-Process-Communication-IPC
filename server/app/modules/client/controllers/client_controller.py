@@ -8,34 +8,22 @@ class ClientContoller():
     def __init__(self) -> None:
         self.port = None
         self.type = None
-        self.clients_ids = []
+        self.clients = 0
 
-    def run_client(self, client_id: str):
-        # print("Client id")
-        # print(client_id)
-        # print(self.type)
-        # print(self.port)
-        # print("--------")
-        # if client_id == 'client1':
-        #     time.sleep(5)
-        # elif client_id == 'client3':
-        #     time.sleep(6)
-        time.sleep(3)
-        result = os.system(f'E:\\IDL\\2-ING\\semestre-1x\\Prog-Syst-Unix\\Project-Part2\\server\\app\\core\\build\\test.exe {client_id} {self.port}')
-        print(result)
+    def run_client(self, client_id: int):
+        result = os.system(f"cd ../core && ./build/{self.type}_Client {self.port} > logs/{self.type}_Client_{client_id}_Logs")
         if result != 0:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Error occured while trying to launch client")
-        # print(client_id)
-        print("\n--------")
     
     def clients_pool_handler(self):
+        l = list(range(1, self.clients +1))
         p = Pool(5)
-        p.map(self.run_client, self.clients_ids)
+        p.map(self.run_client, l)
     
     def run_all_clients(self, req_body: RunAllClientsInSchema) -> RunAllClientsOutSchema:
         self.port = req_body.port
         self.type = req_body.type
-        self.clients_ids = req_body.clients_ids
+        self.clients = req_body.clients
 
         self.clients_pool_handler() 
 

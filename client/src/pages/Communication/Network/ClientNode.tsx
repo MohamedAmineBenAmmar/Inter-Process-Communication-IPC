@@ -3,7 +3,7 @@
 import React, { memo } from "react";
 import { Handle } from "reactflow";
 import Config from "./Config";
-import { Button } from 'primereact/button'
+import { Button } from "primereact/button";
 
 export default memo(({ data, isConnectable }) => {
   return (
@@ -11,7 +11,9 @@ export default memo(({ data, isConnectable }) => {
       <div className="grid">
         <div className="col align-self-center">{data.name}</div>
         <div className="col">
-          <Config />
+          {Object.keys(data.config).length >= 3 && (
+            <Config config={data.config} nodeName={data.name} type="client" />
+          )}
         </div>
       </div>
       <Handle

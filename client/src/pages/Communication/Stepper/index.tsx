@@ -5,6 +5,7 @@ import { Toast } from 'primereact/toast';
 import './StepsDemo.css';
 import Network from '../Network';
 import Setup from '../Setup';
+import Logs from '../Logs'
 
 export default function Stepper() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -15,6 +16,7 @@ export default function Stepper() {
             [key]: value
         })
     }
+    
     const incrementStep = () => {
         setActiveIndex(activeIndex +1)
     }
@@ -47,6 +49,7 @@ export default function Stepper() {
                 <Steps model={items} activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e.index)} readOnly={false} />
                 {activeIndex === 0 && (<Setup handleConfig={handleConfig} incrementStep={incrementStep} />)}
                 {activeIndex === 1 && (<Network config={config} handleConfig={handleConfig} incrementStep={incrementStep} />)}
+                {activeIndex === 2 && (<Logs/>)}
             </div>
         </div>
     );
